@@ -1,7 +1,7 @@
-# passgen-desktop
+# passgen-wasm
 
-![alt text](./App_screen.png "passgen-console-linuxwin")
+![alt text](./App_screen.png "passgen-wasm")
 
-Crossplatforming gui password generator.
+Webassembly password generator.
 
 [Releases/Downloads](https://github.com/mammothcoding/passgen-desktop/releases/)
