@@ -1,0 +1,45 @@
+[package]
+name = "passgen-desktop"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "A simple password generator."
+authors = ["Mamontov Konstantin <k@mamont.xyz>"]
+build = "build.rs"
+
+[dependencies]
+#rand = { version = "*", features = ["small_rng"], default-features = false }
+#rand_isaac = "0.3.0"
+getrandom = { version = "0.2.15", features = ["js"] }
+
+egui_extras = { version = "0.28.1", features = ["all_loaders"] }
+image = { version = "0.25.2", features = ["jpeg", "png"] }
+egui = "0.28.1"
+eframe = { version = "0.28.1", default-features = false, features = [
+    "default_fonts", # Embed the default egui fonts.
+    "glow",          # Use the glow rendering backend. Alternative: "wgpu".
+    "persistence",   # Enable restoring app state when restarting the app.
+] }
+log = "0.4.22"
+console_error_panic_hook = "0.1.7"
+tracing-wasm = "0.2.1"
+wasm-bindgen-futures = "0.4.42"
+wasm-bindgen = "0.2.92"
+web-sys = { version = "0.3.69", features = ["Window", "Document", "HtmlElement", "Text"] }
+js-sys = "0.3.69"
+
+
+# Reduce the size of the executable  file:
+[profile.release]
+lto = true
+codegen-units = 1
+opt-level = "z"
+panic = 'abort'
+strip = true
+
+[build-dependencies]
+#windows_exe_info = "*"
+
+#[dependencies.winit]
+#version = "*"
+#features = ["default"]
